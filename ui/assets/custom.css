@@ -1,0 +1,280 @@
+/* Transformer Inference Profiler - Dark Theme & Telemetry Aesthetics */
+
+:root {
+  --bg-primary: #0a0d14;
+  --bg-card: #111726;
+  --bg-card-hover: #172033;
+  --border-color: #1e293b;
+  --border-accent: #3b82f6;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-cyan: #06b6d4;
+  --accent-green: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  --accent-purple: #8b5cf6;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.profiler-header {
+  background: linear-gradient(180deg, #111827 0%, #0a0d14 100%);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.kpi-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.kpi-card:hover {
+  border-color: #334155;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.kpi-title {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.kpi-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: var(--text-main);
+}
+
+.kpi-unit {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-left: 0.25rem;
+}
+
+.dashboard-panel {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Dynamic Token Entropy Canvas Styles */
+.token-canvas-container {
+  background-color: #05070a;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 1.25rem;
+  overflow-y: auto;
+  font-family: 'JetBrains Mono', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  transition: all 0.2s ease-in-out;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+.token-canvas-container ::selection {
+  background-color: rgba(56, 189, 248, 0.45) !important;
+  color: #ffffff !important;
+}
+
+.token-canvas-container.height-standard {
+  min-height: 180px;
+  max-height: 360px;
+}
+
+.token-canvas-container.height-expanded {
+  min-height: 320px;
+  max-height: 600px;
+}
+
+.token-canvas-container.height-auto {
+  min-height: 180px;
+  max-height: none;
+  overflow-y: visible;
+}
+
+/* Natural Paragraph Flow View */
+.token-canvas-container.mode-flow {
+  line-height: 2.1;
+  font-size: 1.02rem;
+  letter-spacing: 0.015em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 'JetBrains Mono', sans-serif;
+}
+
+.token-flow-span {
+  display: inline;
+  padding: 2px 3px;
+  margin: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #f8fafc;
+  transition: filter 0.12s ease, box-shadow 0.12s ease;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+.token-flow-span:hover {
+  filter: brightness(1.4);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
+  outline: 1px solid rgba(255, 255, 255, 0.5);
+  z-index: 5;
+}
+
+.token-flow-span:focus {
+  outline: 2px solid #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+}
+
+.token-flow-span.selected {
+  outline: 2px solid #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
+  filter: brightness(1.25);
+  font-weight: 700;
+}
+
+/* Discrete Pills View */
+.token-canvas-container.mode-pills {
+  line-height: 2.3;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.92rem;
+}
+
+.token-pill {
+  display: inline-block;
+  padding: 2px 7px;
+  margin: 2px 3px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: filter 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  font-weight: 500;
+  position: relative;
+}
+
+.token-pill:hover {
+  filter: brightness(1.35);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.75);
+  border-color: rgba(255, 255, 255, 0.7) !important;
+  z-index: 5;
+}
+
+.token-pill:focus {
+  outline: 2px solid #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+}
+
+.token-pill.selected {
+  outline: 2px solid #38bdf8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.9);
+  filter: brightness(1.2);
+}
+
+/* Inputs and Selectors */
+.custom-input, .custom-select {
+  background-color: #0f172a !important;
+  border: 1px solid #334155 !important;
+  color: #f8fafc !important;
+  border-radius: 6px !important;
+}
+
+.custom-input:focus, .custom-select:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f17;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Custom Tabs Styling */
+.nav-tabs {
+  border-bottom: 1px solid #1e293b !important;
+  margin-bottom: 1.25rem;
+}
+.nav-tabs .nav-link {
+  color: #94a3b8 !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px 6px 0 0 !important;
+  transition: all 0.15s ease-in-out;
+}
+.nav-tabs .nav-link:hover {
+  color: #f8fafc !important;
+  border-color: #334155 #334155 transparent !important;
+}
+.nav-tabs .nav-link.active {
+  color: #38bdf8 !important;
+  background-color: #111726 !important;
+  border-color: #1e293b #1e293b #111726 !important;
+  border-bottom: 2px solid #38bdf8 !important;
+}
+
+/* Telemetry Table Container & Sticky Header */
+#telemetry-table-container {
+  width: 100%;
+}
+
+.telemetry-table-scroll {
+  max-height: 360px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid #1e293b;
+  -webkit-overflow-scrolling: touch;
+}
+
+.telemetry-table-scroll table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #0d131f !important;
+  z-index: 10;
+  box-shadow: 0 1px 0 #1e293b;
+}
+
+.telemetry-table-scroll table tbody tr:hover {
+  background-color: rgba(56, 189, 248, 0.08) !important;
+}
+
